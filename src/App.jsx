@@ -4,13 +4,13 @@ import Footer from "./ui/Footer";
 
 function App() {
   return (
-    <>
-      <Header/>
+    <div className="pt-5 px-10">
+      <Header />
       <main>
-        <Outlet/>
+        <Outlet />
       </main>
-      <Footer/>
-    </>
+      <Footer />
+    </div>
   );
 }
 
