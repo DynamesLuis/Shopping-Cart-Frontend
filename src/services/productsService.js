@@ -1,6 +1,6 @@
-const getProducts = async () => {
+const getProducts = async (signal) => {
   const url = "https://fakestoreapi.com/products";
-  const response = await fetch(url);
+  const response = await fetch(url, { signal });
 
   if (!response.ok) {
     throw new Error(`Response status: ${response.status}`);
