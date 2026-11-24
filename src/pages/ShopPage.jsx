@@ -46,6 +46,24 @@ export default function ShopPage() {
     setSelectedCategory(category);
   };
 
+  const [cart, setCart] = useState([]);
+
+  const handleAddToCartClick = (newProduct) => {
+    setCart((prev) => {
+      const found = prev.find((product) => product.id === newProduct.id);
+
+      if (found) {
+        return prev.map((product) =>
+          product.id === newProduct.id
+            ? { ...product, quantity: product.quantity + 1 }
+            : product,
+        );
+      }
+
+      return [...prev, { ...newProduct, quantity: 1 }];
+    });
+  };
+
   if (isLoading)
     return (
       <div className="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-4">

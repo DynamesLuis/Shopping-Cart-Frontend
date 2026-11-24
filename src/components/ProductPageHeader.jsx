@@ -1,5 +1,7 @@
 import CategoryButton from "./CategoryButton";
 import categoryInfo from "../constants/categoryInfo";
+import TitlePage from "./shared/TitlePage";
+import DescriptionPage from "./shared/DescriptionPage";
 
 export default function ProductPageHeader({
   categories,
@@ -18,8 +20,8 @@ export default function ProductPageHeader({
 
   return (
     <header className="flex flex-col items-center gap-5">
-      <h2 className="font-bold text-4xl">{title}</h2>
-      <p>{description}</p>
+      <TitlePage title={title} />
+      <DescriptionPage description={description} />
       <div className="flex w-full justify-center gap-5">
         <CategoryButton
           label={"All"}
