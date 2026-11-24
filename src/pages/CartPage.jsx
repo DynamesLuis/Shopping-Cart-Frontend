@@ -1,8 +1,11 @@
 import CartProductCard from "../components/CartProductCard";
 import DescriptionPage from "../components/shared/DescriptionPage";
 import TitlePage from "../components/shared/TitlePage";
+import { useCart } from "../context/CartContext";
 
 export default function CartPage() {
+  const {cart} = useCart();
+
   return (
     <div className="pt-20 text-center">
       <TitlePage title={"Your Cart"} />
@@ -13,9 +16,11 @@ export default function CartPage() {
       />
       <div className="flex gap-5 mt-15">
         <div className="flex flex-col gap-10 flex-3">
-          <CartProductCard />
-          <CartProductCard />
-          <CartProductCard />
+          {cart.map(product => {
+            return (
+              <CartProductCard product={product}/>
+            )
+          })}
         </div>
         <div className="flex flex-col gap-2 flex-2 text-start">
           <h3 className="font-bold">Summary</h3>

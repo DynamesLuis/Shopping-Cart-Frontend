@@ -1,4 +1,13 @@
-export default function CartProductCard({ title, price, image, description }) {
+import { useCart } from "../context/CartContext";
+
+export default function CartProductCard({ product }) {
+  const { title, description, image, price, quantity } = product;
+  const {
+    handleIncreaseQuantity,
+    handleDecreaseQuantity,
+    handleDeleteFromCart,
+  } = useCart();
+
   return (
     <div className="flex h-50 gap-4">
       <div className="flex aspect-square h-full items-center justify-center rounded-md bg-gray-100">
@@ -13,7 +22,10 @@ export default function CartProductCard({ title, price, image, description }) {
         <p className="text-start">{description}</p>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3 px-2 py-1">
-            <button className="cursor-pointer rounded-full bg-slate-100 p-1 transition-colors duration-300 hover:scale-105 hover:bg-slate-300">
+            <button
+              onClick={() => handleDecreaseQuantity(product.id)}
+              className="cursor-pointer rounded-full bg-slate-100 p-1 transition-colors duration-300 hover:scale-105 hover:bg-slate-300"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -30,8 +42,11 @@ export default function CartProductCard({ title, price, image, description }) {
                 <path d="M5 12l14 0" />
               </svg>
             </button>
-            <p className="min-w-4 text-center text-lg">1</p>
-            <button className="cursor-pointer rounded-full bg-slate-100 p-1 transition-colors duration-300 hover:scale-105 hover:bg-slate-300">
+            <p className="min-w-4 text-center text-lg">{quantity}</p>
+            <button
+              onClick={() => handleIncreaseQuantity(product.id)}
+              className="cursor-pointer rounded-full bg-slate-100 p-1 transition-colors duration-300 hover:scale-105 hover:bg-slate-300"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -50,7 +65,10 @@ export default function CartProductCard({ title, price, image, description }) {
               </svg>
             </button>
           </div>
-          <button className="cursor-pointer text-red-500 hover:text-red-700">
+          <button
+            onClick={() => handleDeleteFromCart(product.id)}
+            className="cursor-pointer text-red-500 hover:text-red-700"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
