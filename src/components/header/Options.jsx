@@ -6,32 +6,7 @@ export default function Options() {
 
   return (
     <div className="flex items-center gap-5">
-      <label htmlFor="search" className="relative flex items-center">
-        <input
-          type="text"
-          name="search"
-          id="search"
-          className="w-full rounded-md py-2 px-3"
-        />
-
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#000000"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="absolute right-3 pointer-events-none"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M3 10a7 7 0 1 0 14 0a7 7 0 0 0 -14 0" />
-          <path d="M21 21l-6 -6" />
-        </svg>
-      </label>
-
+      
       <NavLink
         to={"/cart"}
         className={({ isActive }) =>
