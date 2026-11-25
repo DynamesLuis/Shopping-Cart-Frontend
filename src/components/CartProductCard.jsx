@@ -3,6 +3,7 @@ import { useCart } from "../context/CartContext";
 export default function CartProductCard({ product }) {
   const { title, description, image, price, quantity } = product;
   const { increaseQuantity, decreaseQuantity, deleteFromCart } = useCart();
+  const itemSubtotal = price * quantity;
 
   return (
     <div className="flex h-50 gap-4">
@@ -13,7 +14,7 @@ export default function CartProductCard({ product }) {
       <div className="flex flex-1 flex-col justify-between py-1">
         <div className="flex justify-between gap-2 font-bold text-2xl">
           <p>{title}</p>
-          <p>{price}</p>
+          <p>${itemSubtotal}</p>
         </div>
         <p className="text-start">{description}</p>
         <div className="flex items-center justify-between">

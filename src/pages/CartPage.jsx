@@ -4,7 +4,9 @@ import TitlePage from "../components/shared/TitlePage";
 import { useCart } from "../context/CartContext";
 
 export default function CartPage() {
-  const {cart} = useCart();
+  const { cart, totalPrice } = useCart();
+  const delivery = 125;
+  const total = totalPrice + delivery;
 
   return (
     <div className="pt-20 text-center">
@@ -16,31 +18,29 @@ export default function CartPage() {
       />
       <div className="flex gap-5 mt-15">
         <div className="flex flex-col gap-10 flex-3">
-          {cart.map(product => {
-            return (
-              <CartProductCard product={product}/>
-            )
+          {cart.map((product) => {
+            return <CartProductCard product={product} />;
           })}
         </div>
         <div className="flex flex-col gap-2 flex-2 text-start">
           <h3 className="font-bold">Summary</h3>
           <div className="flex justify-between">
             <p>Subtotal:</p>
-            <p className="font-semibold">$1500</p>
+            <p className="font-semibold">${totalPrice}</p>
           </div>
           <div className="flex justify-between">
             <p>Estimated delivery and Handling:</p>
-            <p className="font-semibold">Free</p>
-          </div>
-          <div className="flex justify-between">
-            <p>Estimated taxes:</p>
-            <p className="font-semibold">$125</p>
+            <p className="font-semibold">
+              {delivery === 0 ? "Free" : `$${delivery}`}
+            </p>
           </div>
           <div className="flex justify-between">
             <p className="font-bold">Total</p>
-            <p className="font-bold">$1625</p>
+            <p className="font-bold">${total}</p>
           </div>
-          <button className="mt-5 cursor-pointer bg-black text-white px-1 py-2 rounded-full">Checkout</button>
+          <button className="mt-5 cursor-pointer bg-black text-white px-1 py-2 rounded-full">
+            Checkout
+          </button>
         </div>
       </div>
     </div>

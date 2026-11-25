@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 import { useCart } from "../../context/CartContext";
 
 export default function Options() {
-  const { cart } = useCart();
+  const { totalItems } = useCart();
 
   return (
     <div className="flex items-center gap-5">
@@ -35,7 +35,7 @@ export default function Options() {
       <NavLink
         to={"/cart"}
         className={({ isActive }) =>
-          `relative flex items-center justify-center w-10 h-10 rounded-full transition-colors
+          `relative flex items-center justify-center w-10 h-10 rounded-full transition-colors transition-all duration-300 ease
            ${isActive ? "bg-black text-white hover:bg-black" : "hover:bg-gray-200"}`
         }
       >
@@ -58,7 +58,7 @@ export default function Options() {
         </svg>
 
         <span className="absolute -top-1 -right-1 flex items-center justify-center min-w-5 h-5 px-1 rounded-full bg-black text-white text-xs font-bold">
-          {cart.length}
+          {totalItems}
         </span>
       </NavLink>
 

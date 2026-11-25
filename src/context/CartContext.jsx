@@ -5,6 +5,12 @@ export const CartContext = createContext(null);
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
+  const totalItems = cart.reduce((acc, curr) => acc + curr.quantity, 0);
+  const totalPrice = cart.reduce(
+    (acc, curr) => acc + curr.quantity * curr.price,
+    0,
+  );
+
   const addTocart = (newProduct) => {
     setCart((prev) => {
       const found = prev.find((product) => product.id === newProduct.id);
@@ -48,6 +54,8 @@ export function CartProvider({ children }) {
     <CartContext.Provider
       value={{
         cart,
+        totalItems,
+        totalPrice,
         addTocart,
         deleteFromCart,
         increaseQuantity,
