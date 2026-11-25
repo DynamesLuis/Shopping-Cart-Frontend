@@ -2,11 +2,7 @@ import { useCart } from "../context/CartContext";
 
 export default function CartProductCard({ product }) {
   const { title, description, image, price, quantity } = product;
-  const {
-    handleIncreaseQuantity,
-    handleDecreaseQuantity,
-    handleDeleteFromCart,
-  } = useCart();
+  const { increaseQuantity, decreaseQuantity, deleteFromCart } = useCart();
 
   return (
     <div className="flex h-50 gap-4">
@@ -23,7 +19,7 @@ export default function CartProductCard({ product }) {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3 px-2 py-1">
             <button
-              onClick={() => handleDecreaseQuantity(product.id)}
+              onClick={() => decreaseQuantity(product.id)}
               className="cursor-pointer rounded-full bg-slate-100 p-1 transition-colors duration-300 hover:scale-105 hover:bg-slate-300"
             >
               <svg
@@ -44,7 +40,7 @@ export default function CartProductCard({ product }) {
             </button>
             <p className="min-w-4 text-center text-lg">{quantity}</p>
             <button
-              onClick={() => handleIncreaseQuantity(product.id)}
+              onClick={() => increaseQuantity(product.id)}
               className="cursor-pointer rounded-full bg-slate-100 p-1 transition-colors duration-300 hover:scale-105 hover:bg-slate-300"
             >
               <svg
@@ -66,7 +62,7 @@ export default function CartProductCard({ product }) {
             </button>
           </div>
           <button
-            onClick={() => handleDeleteFromCart(product.id)}
+            onClick={() => deleteFromCart(product.id)}
             className="cursor-pointer text-red-500 hover:text-red-700"
           >
             <svg

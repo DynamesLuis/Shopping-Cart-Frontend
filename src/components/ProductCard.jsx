@@ -1,7 +1,7 @@
 import { useCart } from "../context/CartContext";
 
 export default function ProductCard({ product }) {
-  const { handleAddTocart } = useCart();
+  const { addTocart } = useCart();
 
   return (
     <div className="flex h-full flex-col group">
@@ -36,7 +36,7 @@ export default function ProductCard({ product }) {
       <div className="flex items-center justify-between">
         <p className="font-semibold">${product.price}</p>
         <button
-          onClick={() => handleAddTocart(product)}
+          onClick={() => addTocart(product)}
           className="cursor-pointer w-28 border-solid border-2 border-slate-500 rounded-full py-1 px-2 hover:bg-black hover:text-white hover:border-black transition-all duration-300 ease"
         >
           Add to cart
