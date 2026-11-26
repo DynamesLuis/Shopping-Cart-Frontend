@@ -6,7 +6,7 @@ import { useCart } from "../context/CartContext";
 export default function CartPage() {
   const { cart, totalPrice } = useCart();
   const delivery = 125;
-  const total = totalPrice + delivery;
+  const total = (totalPrice + delivery).toFixed(2);
 
   return (
     <div className="pt-20 text-center">
