@@ -34,7 +34,7 @@ export default function Header() {
         <Navbar />
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex w-full items-center justify-center gap-4 md:w-auto md:justify-start">
         <Options />
 
         <button
