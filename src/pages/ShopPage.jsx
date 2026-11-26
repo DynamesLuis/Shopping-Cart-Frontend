@@ -101,7 +101,7 @@ export default function ShopPage() {
           </svg>
         </label>
       </div>
-      <div className="mt-8 grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-5">
+      <div className="mt-8 grid grid-cols-[repeat(auto-fill,200px)] justify-center gap-10">
         {filteredProducts.map((product) => {
           return <ProductCard key={product.id} product={product} />;
         })}
