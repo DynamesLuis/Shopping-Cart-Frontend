@@ -22,7 +22,7 @@ export default function ProductPageHeader({
     <header className="flex flex-col items-center gap-5">
       <TitlePage title={title} />
       <DescriptionPage description={description} />
-      <div className="flex w-full justify-center gap-5">
+      <div className="flex w-full justify-center gap-3 flex-wrap">
         <CategoryButton
           label={"All"}
           onSelectCategory={onSelectCategory}

@@ -72,7 +72,7 @@ export default function ShopPage() {
         selectedCategory={selectedCategory}
         onSelectCategory={handleCategoryClick}
       />
-      <div className="w-xs mt-2">
+      <div className="w-xs mt-4 mx-auto">
         <label htmlFor="search" className="relative flex items-center">
           <input
             type="text"
