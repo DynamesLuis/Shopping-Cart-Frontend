@@ -72,7 +72,7 @@ export default function ShopPage() {
         selectedCategory={selectedCategory}
         onSelectCategory={handleCategoryClick}
       />
-      <div className="w-xs mt-4 mx-auto">
+      <div className="ml-auto mt-2 w-xs">
         <label htmlFor="search" className="relative flex items-center">
           <input
             type="text"
@@ -101,7 +101,7 @@ export default function ShopPage() {
           </svg>
         </label>
       </div>
-      <div className="mt-8 grid grid-cols-[repeat(auto-fill,200px)] justify-center gap-10">
+      <div className="mt-8 grid grid-cols-[repeat(auto-fill,200px)] justify-center gap-10 sm:justify-between">
         {filteredProducts.map((product) => {
           return <ProductCard key={product.id} product={product} />;
         })}
