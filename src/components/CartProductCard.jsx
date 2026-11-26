@@ -6,18 +6,21 @@ export default function CartProductCard({ product }) {
   const itemSubtotal = price * quantity;
 
   return (
-    <div className="flex h-50 gap-4">
-      <div className="flex aspect-square h-full items-center justify-center rounded-md bg-gray-100">
+    <div className="flex flex-col gap-4 sm:h-50 sm:flex-row">
+      <div className="flex aspect-square w-full items-center justify-center rounded-md bg-gray-100 sm:h-full sm:w-auto">
         <img src={image} alt={title} className="h-4/5 w-4/5 object-contain" />
       </div>
 
-      <div className="flex flex-1 flex-col justify-between py-1">
-        <div className="flex justify-between gap-2 font-bold text-2xl">
-          <p>{title}</p>
-          <p>${itemSubtotal}</p>
+      <div className="flex min-w-0 flex-1 flex-col justify-between gap-3 py-1">
+        <div className="flex justify-between gap-2">
+          <p className="font-bold text-lg sm:text-2xl">{title}</p>
+          <p className="shrink-0 font-bold text-lg sm:text-2xl">
+            ${itemSubtotal}
+          </p>
         </div>
-        <p className="text-start">{description}</p>
-        <div className="flex items-center justify-between">
+
+        <p className="text-start text-sm sm:text-base">{description}</p>
+        <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3 px-2 py-1">
             <button
               onClick={() => decreaseQuantity(product.id)}

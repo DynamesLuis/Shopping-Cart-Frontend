@@ -3,7 +3,7 @@ import HomeProductCard from "../components/HomeProductCard";
 import { getProducts } from "../services/productsService";
 import ProductSkeleton from "../components/ProductSkeleton";
 import ErrorMsg from "./ErrorMsg";
-import collection from "../assets/collection.avif"
+import collection from "../assets/collection.avif";
 
 export default function HomePage() {
   const [featuredProducts, setFeaturedProducts] = useState([]);
@@ -48,7 +48,7 @@ export default function HomePage() {
     <div className="bg-white text-neutral-900">
       <section
         className="mx-auto grid max-w-7xl gap-10
-        px-6 py-16 md:grid-cols-2 md:items-center md:py-24"
+        px-6 py-16 lg:grid-cols-2 lg:items-center lg:py-24"
       >
         <div className="space-y-6">
           <span
@@ -58,12 +58,12 @@ export default function HomePage() {
             New Collection 2026
           </span>
 
-          <h1
-            className="max-w-lg text-5xl font-medium
-            leading-tight tracking-tight md:text-7xl"
+          <h2
+            className="max-w-lg text-4xl font-medium
+            leading-tight tracking-tight sm:text-5xl md:text-7xl"
           >
             Simplicity is the ultimate sophistication.
-          </h1>
+          </h2>
 
           <p
             className="max-w-md text-base leading-relaxed
