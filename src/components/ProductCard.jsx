@@ -1,7 +1,14 @@
 import { useCart } from "../context/CartContext";
+import { useToast } from "../context/ToastContext";
 
 export default function ProductCard({ product }) {
   const { addTocart } = useCart();
+  const { showToast } = useToast();
+
+  const handleAddClick = (product) => {
+    addTocart(product);
+    showToast("Product added to cart", "add");
+  };
 
   return (
     <div className="flex h-full flex-col group">
@@ -36,7 +43,7 @@ export default function ProductCard({ product }) {
       <div className="flex items-center justify-between">
         <p className="font-semibold">${product.price}</p>
         <button
-          onClick={() => addTocart(product)}
+          onClick={() => handleAddClick(product)}
           className="cursor-pointer w-28 border-solid border-2 border-slate-500 rounded-full py-1 px-2 hover:bg-black hover:text-white hover:border-black transition-all duration-300 ease"
         >
           Add to cart
