@@ -1,9 +1,16 @@
 import { useCart } from "../context/CartContext";
+import { useToast } from "../context/ToastContext";
 
 export default function CartProductCard({ product }) {
   const { title, description, image, price, quantity } = product;
   const { increaseQuantity, decreaseQuantity, deleteFromCart } = useCart();
+  const {showToast} = useToast();
   const itemSubtotal = price * quantity;
+
+  const handleDeleteClick = (productId) => {
+    deleteFromCart(productId);
+    showToast("Product deleted from cart", "delete");
+  }
 
   return (
     <div className="flex flex-col gap-4 sm:h-50 sm:flex-row">
@@ -66,7 +73,7 @@ export default function CartProductCard({ product }) {
             </button>
           </div>
           <button
-            onClick={() => deleteFromCart(product.id)}
+            onClick={() => handleDeleteClick(product.id)}
             className="cursor-pointer text-red-500 hover:text-red-700"
           >
             <svg
